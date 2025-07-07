@@ -12,8 +12,8 @@ const Header = () => {
           h-[60px]
           px-[20px]
           lg:px-[40px]
-
-          bg-red-500
+          bg-transparent
+          fixed top-0 left-0 w-full z-10
         ">
             {/* Logo start */}
             <div className="w-full ">
@@ -33,10 +33,10 @@ const Header = () => {
                 border-r-transparent
                 border-l-transparent
                 border-b
-                border-b-black
+                border-b-[#000000]
                 rounded-none
                 text-center
-                placeholder:text-black
+                placeholder:text-[#000000]
                 text-xs
                 focus-visible:outline-none
                 focus-visible:ring-0
@@ -45,8 +45,8 @@ const Header = () => {
                 focus-visible:border-r-transparent
                 focus-visible:border-l-transparent
                 focus-visible:border-b
-                focus-visible:border-b-black
-                focus:border-black
+                focus-visible:border-b-[#000000]
+                focus:border-[#000000]
                 "
                     placeholder="ARA" />
             </div>
