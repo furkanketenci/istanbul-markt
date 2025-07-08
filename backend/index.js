@@ -2,16 +2,14 @@ import express from "express";
 import dotenv from "dotenv";
 import dbConnection from "./config/db.js";
 import productRoutePath from "./routes/product.js"
-
+import cors from "cors";
 dotenv.config();
 
 const app = express();
 const port = 5001;
 
+app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 app.use("", productRoutePath)
 dbConnection();
 

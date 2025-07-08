@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema({
         required: true
     },
     // cloudinary for images
-    images: [{
+    images: {
         public_id: {
             type: String,
             required: true,
@@ -33,7 +33,7 @@ const productSchema = new mongoose.Schema({
             type: String,
             required: true,
         }
-    }],
+    },
     rating: {
         type: Number,
         default: 0
