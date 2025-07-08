@@ -2,6 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const images = [
     '/banner1.jpg',
@@ -12,7 +13,6 @@ const mobileImages = [
     '/mobile-banner1.jpg',
     '/mobile-banner2.jpg',
 ];
-
 
 const Banner = () => {
     return (
@@ -25,16 +25,18 @@ const Banner = () => {
                     style={{ width: '100%', height: '100%' }}
                 >
                     {images.map((src, idx) => (
-                        <SwiperSlide key={idx}>
-                            <div className="w-full h-screen relative">
-                                <Image
-                                    src={src}
-                                    alt={`Banner ${idx + 1}`}
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                    priority={idx === 0}
-                                />
-                            </div>
+                        <SwiperSlide key={idx} >
+                            <Link href={"/products"}>
+                                <div className="w-full h-screen relative">
+                                    <Image
+                                        src={src}
+                                        alt={`Banner ${idx + 1}`}
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        priority={idx === 0}
+                                    />
+                                </div>
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -48,20 +50,23 @@ const Banner = () => {
                     style={{ width: '100%', height: '100%' }}
                 >
                     {mobileImages.map((src, idx) => (
+
                         <SwiperSlide key={idx}>
-                            <div className="w-full h-screen relative">
-                                <Image
-                                    src={src}
-                                    alt={`Banner ${idx + 1}`}
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                    priority={idx === 0}
-                                />
-                            </div>
+                            <Link href={"/products"}>
+                                <div className="w-full h-screen relative">
+                                    <Image
+                                        src={src}
+                                        alt={`Banner ${idx + 1}`}
+                                        fill
+                                        style={{ objectFit: 'cover' }}
+                                        priority={idx === 0}
+                                    />
+                                </div>
+                            </Link>
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            </div>
+            </div >
         </>
     );
 };
