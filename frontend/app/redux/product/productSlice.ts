@@ -58,7 +58,7 @@ export const getAllProducts = createAsyncThunk('allProducts',
 export const getDetailProduct = createAsyncThunk("detailProduct",
     async (id: string) => {
         try {
-            const response = await fetch(`http://localhost:5001/products/${id}`)
+            const response = await fetch(`http://localhost:5001/products/detail/${id}`)
             return await response.json()
         } catch (error) {
             console.error("getDetailProduct verisi çekilemedi!")
@@ -92,7 +92,7 @@ export const productSlice = createSlice({
         });
         builder.addCase(getDetailProduct.fulfilled, (state, action) => {
             state.loading = false;
-            state.detailProduct = action.payload
+            state.detailProduct = action.payload.getAProduct;
         });
         builder.addCase(getDetailProduct.rejected, (state, action) => {
             state.loading = true;

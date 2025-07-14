@@ -26,7 +26,7 @@ const Banner = () => {
                 >
                     {images.map((src, idx) => (
                         <SwiperSlide key={idx} >
-                            <Link href={"/products/all"}>
+                            <Link href={"/products"}>
                                 <div className="w-full h-screen relative">
                                     <Image
                                         src={src}
