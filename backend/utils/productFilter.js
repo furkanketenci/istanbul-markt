@@ -33,4 +33,4 @@ export const applyPagination = (query, queryStr, resultPerPage) => {
     const skip = resultPerPage * (currentPage - 1); // kaç ürün atlanacak
 
     return query.limit(resultPerPage).skip(skip); // ilgili sayfa ürünlerini döndür
-}
+};

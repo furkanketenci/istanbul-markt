@@ -3,21 +3,24 @@ import { applyFilter, applyPagination, applySearch } from "../utils/productFilte
 
 const getAllProducts = async (req, res) => {
     try {
-        const resultPerPage = 10; // sayfa başına ürün sayısı
-        let allProduct = await Product.find();
-        allProduct = applySearch(allProduct, req.query)
-        allProduct = applyFilter(allProduct, req.query)
+        const resultPerPage = 10;
+
+        let query = Product.find();
+
+        query = applySearch(query, req.query);
+
+        query = applyFilter(query, req.query);
+
         query = applyPagination(query, req.query, resultPerPage);
 
-        res.status(200).json({
-            allProduct
-        })
+        const allProduct = await query;
 
+        res.status(200).json({ allProduct });
+    } catch (err) {
+        console.log("getAllProducts verisi çekilemedi!", err);
+        res.status(500).json({ error: "Sunucu hatası" });
     }
-    catch (err) {
-        console.log("getAllProducts verisi çekilemedi!", err)
-    }
-}
+};
 
 const getOneProduct = async (req, res) => {
     try {
