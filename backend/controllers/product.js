@@ -1,8 +1,13 @@
 import Product from "../models/product.js";
+import { applyFilter, applyPagination, applySearch } from "../utils/productFilter.js";
 
 const getAllProducts = async (req, res) => {
     try {
-        const allProduct = await Product.find();
+        const resultPerPage = 10; // sayfa başına ürün sayısı
+        let allProduct = await Product.find();
+        allProduct = applySearch(allProduct, req.query)
+        allProduct = applyFilter(allProduct, req.query)
+        query = applyPagination(query, req.query, resultPerPage);
 
         res.status(200).json({
             allProduct
