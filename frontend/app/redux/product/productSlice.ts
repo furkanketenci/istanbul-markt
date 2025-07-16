@@ -44,9 +44,10 @@ const initialState: ProductState = {
 }
 
 export const getAllProducts = createAsyncThunk('allProducts',
-    async () => {
+    async ({ params }: { params: { keyword: string } }) => {
+        const { keyword } = params;
         try {
-            const response = await fetch("http://localhost:5001/products")
+            const response = await fetch(`http://localhost:5001/products?keyword=${keyword}`)
             return await response.json();
         }
         catch (err) {
