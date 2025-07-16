@@ -1,8 +1,43 @@
+"use client"
 import { Input } from "@/components/ui/input"
 import Logo from "../Logo"
 import RedirectButton from "./RedirectButton"
+import { useEffect, useRef, useState } from "react"
+import { usePathname, useRouter } from 'next/navigation';
+import { useDispatch } from "react-redux"
+import { AppDispatch } from "@/app/redux/store"
+import { getKeyword } from "@/app/redux/general/generalSlice"
+import { debounce } from "lodash"
 
 const Header = () => {
+    const router = useRouter();
+    const pathname = usePathname();
+
+    const [searchKeyword, setSearchKeyword] = useState<string>("");
+    const dispatch = useDispatch<AppDispatch>();
+
+    const debouncedSearch = useRef(
+        debounce((value: string) => {
+            dispatch(getKeyword(value));
+
+            if (pathname !== "products") {
+                router.push("/products");
+            }
+
+        }, 750)
+    ).current;
+
+    const searchKeywordFunc = (value: string) => {
+        setSearchKeyword(value)
+        debouncedSearch(value);
+    }
+
+    useEffect(() => {
+        return () => {
+            debouncedSearch.cancel();
+        };
+    }, [debouncedSearch]);
+
     return (
         <div className="
           flex
@@ -28,6 +63,14 @@ const Header = () => {
             lg:block
             ">
                 <Input
+                    type="search"
+                    value={searchKeyword}
+                    onChange={
+                        (e) => {
+                            searchKeywordFunc(e.target.value)
+                        }
+
+                    }
                     className="
                 border-t-transparent
                 border-r-transparent
