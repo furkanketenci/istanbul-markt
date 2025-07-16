@@ -11,10 +11,9 @@ const PriceFilterBox: React.FC<IPriceFilterBox> = ({
     return (
         <div className="flex">
             <Input className="
-                w-16 
+                w-14
                 h-8 
                 rounded-none 
-                mr-3 
                 border-[#000] 
                 placeholder:text-xs 
                 placeholder:text-[#000] 

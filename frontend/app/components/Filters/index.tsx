@@ -14,8 +14,8 @@ const Filters = () => {
     ]
 
     return (
-        <div className="flex items-center mt-[90px] px-[40px]">
-            <div className="mr-8">
+        <div className="flex items-center flex-wrap mt-[60px] px-[20px] gap-4 lg:mt-[90px] lg:gap-7 lg:px-[40px]">
+            <div>
                 <p className="
             font-bold;
             text-xs
@@ -23,7 +23,7 @@ const Filters = () => {
             ">
                     FİYAT:
                 </p>
-                <div className="flex">
+                <div className="flex gap-3">
                     <PriceFilterBox placeholderText="Min" />
                     <PriceFilterBox placeholderText="Max" />
                 </div>

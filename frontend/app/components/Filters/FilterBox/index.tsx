@@ -9,7 +9,7 @@ const FilterBox: React.FC<IFilterBox> = ({
     data
 }) => {
     return (
-        <div className="mr-8">
+        <div className="mr-8 last:mr-0">
             <p className="
             font-bold;
             text-xs
@@ -19,7 +19,23 @@ const FilterBox: React.FC<IFilterBox> = ({
             </p>
             <div className="flex">
                 {data.map((item, i) => (
-                    <p className="mr-6 text-xs w-16 h-8 border border-[#000] font-light flex items-center justify-center cursor-pointer" key={i}>{item}</p>
+                    <p className="
+                    w-max
+                    px-3
+                    mr-3
+                    last:mr-0
+                    text-xs 
+                    h-8 
+                    border 
+                    border-[#000] 
+                    font-light 
+                    flex 
+                    items-center 
+                    justify-center 
+                    cursor-pointer"
+                        key={i}>
+                        {item}
+                    </p>
                 ))}
             </div>
         </div>
