@@ -65,5 +65,3 @@ const Banner = () => {
 };
 
 export default Banner;
-// test comment
-// another test
