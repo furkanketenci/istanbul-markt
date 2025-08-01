@@ -1,7 +1,7 @@
 'use client';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import Image from 'next/image';
+import Image from "next/image";
 import Link from 'next/link';
 
 const images = ['/banner1.jpg', '/banner2.jpg'];
