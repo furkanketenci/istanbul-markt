@@ -1,11 +1,8 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [
-      "res.cloudinary.com",
-      "farktorcdn.com"
-    ],
+    domains: ['res.cloudinary.com', 'farktorcdn.com'],
   },
 };
 

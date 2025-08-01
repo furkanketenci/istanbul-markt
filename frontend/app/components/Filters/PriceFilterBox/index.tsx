@@ -1,16 +1,14 @@
-import { Input } from "@/components/ui/input"
+import { Input } from '@/components/ui/input';
 
 interface IPriceFilterBox {
-    placeholderText: string;
+  placeholderText: string;
 }
 
-
-const PriceFilterBox: React.FC<IPriceFilterBox> = ({
-    placeholderText
-}) => {
-    return (
-        <div className="flex">
-            <Input className="
+const PriceFilterBox: React.FC<IPriceFilterBox> = ({ placeholderText }) => {
+  return (
+    <div className="flex">
+      <Input
+        className="
                 w-14
                 h-8 
                 rounded-none 
@@ -18,11 +16,11 @@ const PriceFilterBox: React.FC<IPriceFilterBox> = ({
                 placeholder:text-xs 
                 placeholder:text-[#000] 
                 placeholder:font-light"
-                type="number"
-                placeholder={placeholderText}
-            />
-        </div>
-    )
-}
+        type="number"
+        placeholder={placeholderText}
+      />
+    </div>
+  );
+};
 
-export default PriceFilterBox
+export default PriceFilterBox;
